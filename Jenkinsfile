@@ -1,5 +1,9 @@
 pipeline {
   agent any
+  
+    tools {
+    maven 'Maven3.6.3'
+  }
   stages {
     stage('build') {
       steps {
@@ -11,7 +15,7 @@ pipeline {
     stage('test') {
       steps {
         echo 'Test'
-        sh 'mvn -o clean test'
+        sh 'mvn clean test'
       }
     }
 
@@ -24,7 +28,5 @@ pipeline {
     }
 
   }
-  tools {
-    maven 'Maven3.6.3'
-  }
+
 }
